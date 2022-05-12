@@ -1,0 +1,158 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model ExamModel
+
+<div class="container" align="center">
+    <div class="my-3 lead">
+        <textarea rows="2" cols="100"> @Model.TitleName </textarea>
+    </div>
+    <br />
+    <div class="my-3 lead">
+        <textarea rows="12" cols=100>@Model.Content</textarea>
+    </div>
+    <form asp-action="CreateTestLast" asp-controller="Exam" method="post" class="p-4 w-75 mx-auto shadow">
+        <div>
+            <div class="mb-3">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">1.Soru</span>
+                    <input asp-for="@Model.Question1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="input-group input-group-sm mb-3 w-50" style="float:left">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">A-)</span>
+                    <input asp-for="A1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3 w-50" style="float:right">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">B-)</span>
+                    <input asp-for="B1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <br />
+                <div class="input-group input-group-sm mb-3 w-50" style="float:left">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">C-)</span>
+                    <input asp-for="C1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3 w-50" style="float:right">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">D-)</span>
+                    <input asp-for="D1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select " style="width:35" asp-items="@Model.Options" asp-for=Answer1 >
+                        <option value="0">Doğru Cevabı Seçiniz..</option>
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
+        <br /><br />
+        <div>
+            <div class="mb-3">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">2.Soru</span>
+                    <input asp-for="@Model.Question2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="input-group input-group-sm mb-3 w-50" style="float:left">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">A-)</span>
+                    <input asp-for="A2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3 w-50" style="float:right">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">B-)</span>
+                    <input asp-for="B2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <br />
+                <div class="input-group input-group-sm mb-3 w-50" style="float:left">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">C-)</span>
+                    <input asp-for="C2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3 w-50" style="float:right">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">D-)</span>
+                    <input asp-for="D2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select " style="width:35" asp-items="@Model.Options" asp-for=Answer2 >
+                        <option value="0">Doğru Cevabı Seçiniz..</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <div>
+            <div class="mb-3">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">3.Soru</span>
+                    <input asp-for="@Model.Question3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="input-group input-group-sm mb-3 w-50" style="float:left">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">A-)</span>
+                    <input asp-for="A3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3 w-50" style="float:right">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">B-)</span>
+                    <input asp-for="B3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <br />
+                <div class="input-group input-group-sm mb-3 w-50" style="float:left">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">C-)</span>
+                    <input asp-for="C3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3 w-50" style="float:right">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">D-)</span>
+                    <input asp-for="D3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select " style="width:35" asp-items="@Model.Options" asp-for=Answer3 >
+                        <option value="0">Doğru Cevabı Seçiniz..</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <div>
+            <div class="mb-3">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">4.Soru</span>
+                    <input asp-for="@Model.Question4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="input-group input-group-sm mb-3 w-50" style="float:left">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">A-)</span>
+                    <input asp-for="A4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3 w-50" style="float:right">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">B-)</span>
+                    <input asp-for="B4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <br />
+                <div class="input-group input-group-sm mb-3 w-50" style="float:left">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">C-)</span>
+                    <input asp-for="C4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3 w-50" style="float:right">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">D-)</span>
+                    <input asp-for="D4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select " style="width:35" asp-items="@Model.Options" asp-for=Answer4 >
+                        <option value="0">Doğru Cevabı Seçiniz..</option>
+                    </select>
+                </div>
+                <input type="hidden" asp-for=TitleId value="@Model.TitleId" />
+                <input type="hidden" asp-for=TitleName value="@Model.TitleName" />
+                <input type="hidden" asp-for=Content value="@Model.Content" />
+                 
+            </div>
+        </div>
+        <button type="submit">Sınavı Kaydet</button>
+
+
+
+    </form>
+
+</div>

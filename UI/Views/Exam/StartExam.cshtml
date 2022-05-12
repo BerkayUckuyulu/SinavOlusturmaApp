@@ -1,0 +1,194 @@
+﻿@model ExamResolveDto
+@{
+    Layout = "_Layout";
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+
+
+</script>
+
+
+<div class="container" align="center">
+    <div class="my-3 lead">
+        <textarea rows="2" cols="100"> @Model.TitleName  </textarea>
+    </div>
+    <br />
+    <div class="my-3 lead">
+        <textarea rows="12" cols=100>@Model.Content</textarea>
+    </div>
+
+    <div class="Ana">
+        <div class="" style="width:400px ; float:left">
+            <strong>@Model.Question1</strong>
+            <div>
+                <div>
+                    <input type="radio" value="A" name="radio1">@Model.A1</input>
+                    <br />
+                    <input type="radio" value="B" name="radio1">@Model.B1</input>
+                    <br />
+                    <input type="radio" value="C" name="radio1">@Model.C1</input>
+                    <br />
+                    <input type="radio" value="D" name="radio1">@Model.D1</input>
+                    <br /><br />
+                    <div id="answer1Html">
+                        <br />
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="" style="width:400px ; float:right">
+            <strong>@Model.Question2</strong>
+            <div>
+                <div>
+                    <input type="radio" value="A" name="radio2">@Model.A2</input>
+                    <br />
+                    <input type="radio" value="B" name="radio2">@Model.B2</input>
+                    <br />
+                    <input type="radio" value="C" name="radio2">@Model.C2</input>
+                    <br />
+                    <input type="radio" value="D" name="radio">@Model.D2</input>
+                    <br /><br />
+                    <div id="answer2Html">
+                        <br />
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <br />
+        <br /><br /><br /><br />
+        <br />
+        <br />
+        <div class="" style="width:400px ; float:left">
+            <strong>@Model.Question3</strong>
+           <div>
+                <div>
+                    <input type="radio" value="A" name="radio3">@Model.A3</input>
+                    <br />
+                    <input type="radio" value="B" name="radio3">@Model.B3</input>
+                    <br />
+                    <input type="radio" value="C" name="radio3">@Model.C3</input>
+                    <br />
+                    <input type="radio" value="D" name="radio3">@Model.D3</input>
+                    <br /><br />
+                    <div id="answer3Html">
+                        <br />
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="" style="width:400px ; float:right">
+            <strong>@Model.Question4</strong>
+            <div>
+                <div>
+                    <input type="radio" value="A" name="radio4">@Model.A4</input>
+                    <br />
+                    <input type="radio" value="B" name="radio4">@Model.B4</input>
+                    <br />
+                    <input type="radio" value="C" name="radio4">@Model.C4</input>
+                    <br />
+                    <input type="radio" value="D" name="radio4">@Model.D4</input>
+                    <br /><br />
+                    <div id="answer4Html">
+                        <br />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            
+
+
+
+        </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br />
+    <div class="mt-4" style="float:none" align="center">
+        <button type="button" id=btnEvaluateExam> Sınavı Değerlendir. </button>
+    </div>
+
+
+</div>
+
+<script>
+    $("#btnEvaluateExam").click(()=>{
+        var givenAnswer1=$("input[name='radio1']:checked").val();
+        var givenAnswer2=$("input[name='radio2']:checked").val();
+        var givenAnswer3=$("input[name='radio3']:checked").val();
+        var givenAnswer4=$("input[name='radio4']:checked").val();
+        
+        $.post("/Exam/GetAnswers",{givenAnswer1,givenAnswer2,givenAnswer3,givenAnswer4},function(data){
+            var k1="";
+            if(givenAnswer1=="@Model.Answer1")
+            {
+                k1= "Cevabınız Doğru";
+            }
+            else
+            {
+                k1=`<p class="warning"> Cevabınız : ${givenAnswer1} Doğru Cevap : @Model.Answer1 </p>`;
+            }
+            
+            
+         $("#answer1Html").html(k1);
+
+         var k2="";
+            if(givenAnswer2=="@Model.Answer2")
+            {
+                k2= "Cevabınız Doğru";
+            }
+            else
+            {
+                k2=`<p class="warning"> Cevabınız : ${givenAnswer2} Doğru Cevap : @Model.Answer2 </p>`;
+            }
+            
+            
+         $("#answer2Html").html(k2);
+
+         var k3="";
+            if(givenAnswer3=="@Model.Answer3")
+            {
+                k3= "Cevabınız Doğru";
+            }
+            else
+            {
+                k3=`<p class="warning"> Cevabınız : ${givenAnswer3} Doğru Cevap : @Model.Answer3 </p>`;
+            }
+            
+            
+         $("#answer3Html").html(k3);
+
+         var k4="";
+            if(givenAnswer4=="@Model.Answer4")
+            {
+                k4= "Cevabınız Doğru";
+            }
+            else
+            {
+                k4=`<p class="warning"> Cevabınız : ${givenAnswer4} Doğru Cevap : @Model.Answer4 </p>`;
+            }
+            
+            
+         $("#answer4Html").html(k4);
+        });
+        alert(data)
+    });
+</script>
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+﻿@model List<ExamListDto>
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Tarih</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+       @for (var i = 0; i < Model.Count; i++)
+       {
+           <tr>
+                <td>@(i+1)</td>
+                <td>@Model[i].TitleName</td>
+                <td>@Model[i].CreatedDate.Substring(0,10)</td>
+                <td><a asp-action="StartExam" asp-controller="Exam" asp-route-id="@Model[i].Id"> Sınavı Başlat </a></td>
+                <td><a asp-action="RemoveExam" asp-controller="Exam" asp-route-id="@Model[i].Id"> Sınavı Sil </a></td>
+            </tr>
+       }
+        
+
+
+    </tbody>
+</table>
